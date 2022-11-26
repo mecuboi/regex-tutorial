@@ -6,6 +6,10 @@ Regex stands for Regular Expression. Regex is a method on searching a text or mu
 
 In this tutorial we will be learning about the different components and functions that we can use to start our journey in searching through a string of text using regex.
 
+The regex that we will be looking at is the regex to match an email:
+
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
 ## Table of Contents
 
 - [Anchors](#anchors)
@@ -28,6 +32,11 @@ Anchor expressions are:
 
 `^` is used before a text when you want to match a string of text that starts with that specific text, whereas `$` is used after a text when you want to match a string of text that ends with that specific text. For example `/^a/` would match all text that starts with the letter a; on the other hand `/c$/` would match all text that ends with the letter c. In the example above, abc would match both expression, however cba would not.
 
+In the email example we can see that the anchor tag is used in the beginning and end of the expression:
+/`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
+
+This means that the expression expects the string to start with the `[a-z0-9_\.-]+` requirement and end with the `[a-z\.]{2,6}` requirement. We will learn more detail below as to what these expressions mean.
+
 ### Quantifiers
 
 Quantifiers expressions are:
@@ -48,6 +57,14 @@ They also have some shorthands:
 
 `*` is the shorthand for `{0, }`. So `//colou*r//` would match `color` and `colouuuuur` as there are no upper limit.
 
+in the email example we can see the quantifier here: /^([a-z0-9_\.-]`+`)@([\da-z\.-]`+`)\.([a-z\.]`{2,6}`)$/
+
+The `+` is to allow the first 2 sections of the expression (before and after @) to have at least 1 character and no upper limit.
+
+In the final section of the email string (after .), there is a minimum of 2 characters and a maximum of 6 characters required that is within the `[a-z\.]` rule. In real life example this would mean the ".com / .net / .com.au / etc."
+
+
+
 ### Sets and Ranges
 
 Bracket expressions are:
@@ -58,6 +75,16 @@ Bracket expressions are:
 `[a-z]` or `[0-9]` is called ranges and is used to match a range of character specified in the bracket. 
 
 If you want to negate a range or negate a set, you just need to put the `^` at the start of the inside of the square bracket. So `/[^abcd]/` would match strings of text that doesn't have a, b, c, or d in it.
+
+In the email example we can see the sets and ranges here in multiple sections: /^(`[a-z0-9_\.-]`+)@(`[\da-z\.-]`+)\.(`[a-z\.]`{2,6})$/
+
+This sets and ranges within the multiple sections of the expression ensures that the correct characters is inputted within the email restriction. 
+
+`[a-z0-9_\.-]` ensures that this section is inputted with lowercase alphanumeric and special characters: _, ., -
+
+`[\da-z\.-]` ensures that this section is inputted with `\d` = digits, a-z alphabets and special characters: _, ., -
+
+`[a-z\.]`ensures that this section is inputted with a-z alphabets and special characters: _, ., -
 
 
 ### Character Classes
@@ -78,6 +105,9 @@ Here are the list of inverse Character Classes:
 
 `\S` is to match everything except for a single whitespace symbol like space, a tab (\t), and a newline (\n)
 
+In the email example we can see the character classes here in multiple sections: /^([a-z0-9_\.-]+)@([```\d```a-z\.-]+)\.([a-z\.]{2,6})$/
+
+`\d` is the short hand to ensure that numeric numbers is allowed in this section.
 
 ### The OR Operator
 
@@ -90,6 +120,8 @@ The `|` expression function as an or method. So `a|c` means either the text cont
 
 without the paranthese it will treat the 2 side as individual words.
 `/center|re/` will match either center or re.
+
+There are no OR operator in the email example.
 
 ### Flags
 
@@ -107,9 +139,15 @@ Here are the list of flags:
 
 `s`: causes `.` to also match new line characters 
 
+These rules can be inserted in the email requirement by adding it at the end after the `/` expression: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`g`
+
 ### Character Escapes
 
 Escaping a character means you want to search that particular character in your search expression, however they are normally part of the expression function or method. For example `()` is a part of the expression function and therefore will not be thought of as a search criteria. To "escape" the character, you need to put a `\` before the character. So to match a text saying: "test()", you need to use this expression: `/test\(\)/`
+
+In the email example we can see the sets and ranges here in multiple sections: /^([a-z0-9_```\.```-]+)@([\da-z```\.```-]+)```\.```([a-z```\.```]{2,6})$/
+
+`\.` is to allow `.` in this section.
 
 ## Author
 

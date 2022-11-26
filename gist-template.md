@@ -23,13 +23,14 @@ Important thing to note is that a regex expression always starts with a `/` and 
 
 ### Anchors
 
-Anchor symbols are:
+Anchor expressions are:
 `^` and `$`
 
 `^` is used before a text when you want to match a string of text that starts with that specific text, whereas `$` is used after a text when you want to match a string of text that ends with that specific text. For example `/^a/` would match all text that starts with the letter a; on the other hand `/c$/` would match all text that ends with the letter c. In the example above, abc would match both expression, however cba would not.
 
 ### Quantifiers
-Quantifiers symbols are:
+
+Quantifiers expressions are:
 `{x}`, `{x,y}`, and `{x, }`
 
 They also have some shorthands:
@@ -48,6 +49,21 @@ They also have some shorthands:
 `*` is the shorthand for `{0, }`. So `//colou*r//` would match `color` and `colouuuuur` as there are no upper limit.
 
 ### Grouping Constructs
+
+Grouping constructs expressions are:
+`[...]` and `[a-z]` or `[0-9]`
+
+`[...]` is called sets and is used to match any of the character put inside the square bracket. So `/[ctpf]ar/` would match `car`, `tar`, `par`, and `far`.
+
+`[a-z]` or `[0-9]` is called ranges and is used to match a range of character specified in the bracket. 
+
+If you want to negate a range or negate a set, you just need to put the `^` at the start of the inside of the square bracket. So `/[^abcd]/` would match strings of text that doesn't have a, b, c, or d in it.
+
+`\w` is the shorthand for `[a-zA-Z0-9]`
+
+
+`\d` is the shorthand for `[0-9]`
+`\D` is the shorthand for `[^0-9}`
 
 ### Bracket Expressions
 

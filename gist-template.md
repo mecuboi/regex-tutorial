@@ -10,7 +10,7 @@ In this tutorial we will be learning about the different components and function
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [Grouping Constructs](#grouping-constructs)
+- [Sets and Ranges](#sets-and-ranges)
 - [Bracket Expressions](#bracket-expressions)
 - [Character Classes](#character-classes)
 - [The OR Operator](#the-or-operator)
@@ -48,9 +48,9 @@ They also have some shorthands:
 
 `*` is the shorthand for `{0, }`. So `//colou*r//` would match `color` and `colouuuuur` as there are no upper limit.
 
-### Grouping Constructs
+### Sets and Ranges
 
-Grouping constructs expressions are:
+Bracket expressions are:
 `[...]` and `[a-z]` or `[0-9]`
 
 `[...]` is called sets and is used to match any of the character put inside the square bracket. So `/[ctpf]ar/` would match `car`, `tar`, `par`, and `far`.
@@ -59,21 +59,41 @@ Grouping constructs expressions are:
 
 If you want to negate a range or negate a set, you just need to put the `^` at the start of the inside of the square bracket. So `/[^abcd]/` would match strings of text that doesn't have a, b, c, or d in it.
 
-`\w` is the shorthand for `[a-zA-Z0-9]`
-
-
-`\d` is the shorthand for `[0-9]`
-`\D` is the shorthand for `[^0-9}`
-
-### Bracket Expressions
 
 ### Character Classes
 
+Here are the list of Character Classes:
+
+`\w` is the shorthand for `[a-zA-Z0-9_]`
+`\d` is the shorthand for `[0-9]`
+`\s` is to match a single whitespace symbol like space, a tab (\t), and a newline (\n)
+
+Here are the list of inverse Character Classes:
+
+`\W` is the shorthand for `[^a-zA-Z0-9}`
+`\D` is the shorthand for `[^0-9}`
+`\S` is to match everything except for a single whitespace symbol like space, a tab (\t), and a newline (\n)
+
+
 ### The OR Operator
+
+The OR operator expression is:
+
+`x|y`
+
+The `|` expression function as an or method. So `a|c` means either the text contains a or c. We can use parentheses to specify a specific portion of the text.
+`/cent(er|re)/` will match both center and centre.
+
+without the paranthese it will treat the 2 side as individual words.
+`/center|re/` will match either center or re.
 
 ### Flags
 
+
+
 ### Character Escapes
+
+Escaping a character means you want to search that particular character in your search expression, however they are normally part of the expression function or method. For example `()` is a part of the expression function and therefore will not be thought of as a search criteria. To "escape" the character, you need to put a `\` before the character. So to match a text saying: "test()", you need to use this expression: `/test\(\)/`
 
 ## Author
 

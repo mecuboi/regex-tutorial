@@ -1,4 +1,4 @@
-# Regex 101
+# Regex Javascript 101
 
 Regex stands for Regular Expression. Regex is a method on searching a text or multiple texts within a string.Regex can help in searching, validating and replacing text without having to go through each string manually. We will be learning the basics of regex in this tutorial and it is broken down into multiple sections to make it easier for reader to navigate through the tutorial
 
@@ -89,7 +89,14 @@ without the paranthese it will treat the 2 side as individual words.
 
 ### Flags
 
+Flags are used to command the search extent or behaviour of our expression. It is normally placed after the end `/` of an expression. For example: `/search/g`
 
+Here are the list of flags:
+`g`: matches the entire strings of text (also can be considered g for global)
+`i`: makes the expression case insensitive
+`m`: enables multi-line mode (enabling `^` and `$` to match the beginning and ending of every single line instead of the whole string)
+`u`: enables support for unicode
+`s`: causes `.` to also match new line characters 
 
 ### Character Escapes
 
@@ -97,4 +104,4 @@ Escaping a character means you want to search that particular character in your 
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+My name is Matthew and I am a student at USYD's bootcamp in full stack engineering. Follow my github at [@mecuboi](https://github.com/mecuboi)

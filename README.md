@@ -65,13 +65,17 @@ If you want to negate a range or negate a set, you just need to put the `^` at t
 Here are the list of Character Classes:
 
 `\w` is the shorthand for `[a-zA-Z0-9_]`
+
 `\d` is the shorthand for `[0-9]`
+
 `\s` is to match a single whitespace symbol like space, a tab (\t), and a newline (\n)
 
 Here are the list of inverse Character Classes:
 
 `\W` is the shorthand for `[^a-zA-Z0-9}`
+
 `\D` is the shorthand for `[^0-9}`
+
 `\S` is to match everything except for a single whitespace symbol like space, a tab (\t), and a newline (\n)
 
 
@@ -92,10 +96,15 @@ without the paranthese it will treat the 2 side as individual words.
 Flags are used to command the search extent or behaviour of our expression. It is normally placed after the end `/` of an expression. For example: `/search/g`
 
 Here are the list of flags:
+
 `g`: matches the entire strings of text (also can be considered g for global)
+
 `i`: makes the expression case insensitive
+
 `m`: enables multi-line mode (enabling `^` and `$` to match the beginning and ending of every single line instead of the whole string)
+
 `u`: enables support for unicode
+
 `s`: causes `.` to also match new line characters 
 
 ### Character Escapes
